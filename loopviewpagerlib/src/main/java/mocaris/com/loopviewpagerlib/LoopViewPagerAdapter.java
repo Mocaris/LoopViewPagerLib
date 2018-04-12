@@ -23,11 +23,11 @@ public abstract class LoopViewPagerAdapter<T> extends PagerAdapter {
         this.loop = loop;
     }
 
-    public List<T> getmDatas() {
+    public List<T> getDatas() {
         return mDatas;
     }
 
-    public void setmDatas(List<T> mDatas) {
+    public void setDatas(List<T> mDatas) {
         this.mDatas = mDatas;
     }
 

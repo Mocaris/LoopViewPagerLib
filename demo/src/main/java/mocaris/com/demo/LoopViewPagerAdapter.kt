@@ -11,17 +11,16 @@ abstract class LoopViewPagerAdapter<T>(val context: Context, val viewPager: View
 
     lateinit var mDatas: List<T>
 
-
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object`
-    }
-
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as View?)
-    }
+//    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+//        return view == `object`
+//    }
+//
+//    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+//        container.removeView(`object` as View?)
+//    }
 
     override fun getCount(): Int {
-        return if (loop) Int.MAX_VALUE else mDatas?.size
+        return if (loop) Int.MAX_VALUE - Int.MAX_VALUE % mDatas.size else mDatas?.size
     }
 
     fun getitemCount(): Int {
@@ -32,9 +31,13 @@ abstract class LoopViewPagerAdapter<T>(val context: Context, val viewPager: View
         return mDatas?.get(position % mDatas.size)
     }
 
+    /**
+     * 无限轮播
+     * 从第一屏开始
+     */
     fun loop() {
         if (loop) {
-            viewPager?.currentItem = count / 2 - (count / 2) % getitemCount()
+            viewPager?.setCurrentItem(count / 2 - (count / 2) % getitemCount(), false)
             viewPager.offscreenPageLimit = 2
         }
     }
