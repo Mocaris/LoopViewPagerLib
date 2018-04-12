@@ -3,3 +3,4 @@
 
 * 设置getCount 为int 最大值   设置显示item为中间值
 * 添加list最后一个item到第一位,添加list第一个item到最后一位,根据滚动监听设置当前item
+
