@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         loopAdapter.mDatas = arrayList.toList()
         vp.addOnPageChangeListener(this@MainActivity)
         vp.adapter = loopAdapter
-        vp.currentItem = 2
+        vp.currentItem = 1
 //        loopAdapter.loop()
 
     }
