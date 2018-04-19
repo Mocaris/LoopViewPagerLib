@@ -42,9 +42,9 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                 , "http://pic31.photophoto.cn/20140413/0008020224865544_b.jpg"
                 , "http://img3.3lian.com/2013/c2/26/d/72.jpg"
                 , "http://pic2.ooopic.com/12/43/87/00bOOOPIC00.jpg")
-        loopAdapter.mDatas = arrayList.toList()
         vp.addOnPageChangeListener(this@MainActivity)
         vp.adapter = loopAdapter
+        loopAdapter.datas = arrayList.toList()
         vp.currentItem = 1
 //        loopAdapter.loop()
 

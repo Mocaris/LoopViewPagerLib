@@ -14,14 +14,12 @@ public abstract class LoopViewPagerAdapter2<T> extends PagerAdapter implements V
 
     protected Context context;
     protected ViewPager viewPager;
-    protected boolean loop;
     protected List<T> mDatas;
     private List<T> provideList = new ArrayList<>();
 
-    public LoopViewPagerAdapter2(Context context, ViewPager viewPager, boolean loop) {
+    public LoopViewPagerAdapter2(Context context, ViewPager viewPager) {
         this.context = context;
         this.viewPager = viewPager;
-        this.loop = loop;
         viewPager.addOnPageChangeListener(this);
     }
 
@@ -33,18 +31,16 @@ public abstract class LoopViewPagerAdapter2<T> extends PagerAdapter implements V
         this.mDatas = datas;
         if (!provideList.isEmpty()) {
             provideList.clear();
-            provideList.addAll(datas);
-            provideList.add(provideList.size() - 1, datas.get(0));//添加第一个
-            provideList.add(0, datas.get(datas.size() - 1));//添加最后一个
-        } else {
-            provideList.clear();
         }
+        provideList.addAll(datas);
+        provideList.add(provideList.size() - 1, datas.get(0));//添加第一个
+        provideList.add(0, datas.get(datas.size() - 1));//添加最后一个
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return loop ? Integer.MAX_VALUE : null == mDatas ? 0 : mDatas.size();
+        return provideList.size();
     }
 
     public T getItem(int position) {
