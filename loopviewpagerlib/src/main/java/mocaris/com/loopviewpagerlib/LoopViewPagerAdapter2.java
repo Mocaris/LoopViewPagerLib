@@ -57,7 +57,7 @@ public abstract class LoopViewPagerAdapter2<T> extends PagerAdapter implements V
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    public void onPageSelected(int position) {
         int count = getCount();
         if (count != 0) {
             if (position == 0) {
@@ -68,10 +68,8 @@ public abstract class LoopViewPagerAdapter2<T> extends PagerAdapter implements V
         }
     }
 
-
     @Override
-    public void onPageSelected(int position) {
-
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 
     @Override
